@@ -1,5 +1,6 @@
 use reqwest::{Response, Url};
 use serde::{Deserialize, Serialize};
+// use crate::error::SearchError;
 
 use crate::api::BACKEND_URL;
 use crate::api::request::post_url;
@@ -146,7 +147,8 @@ const LT: LocaleTemplate = LocaleTemplate {
     },
 };
 
-pub fn default_search<'a>() -> SearchRequest {
+// pub fn default_search<'a>() -> SearchRequest {
+pub fn default_search<'a>(from: i32, size: i32) -> SearchRequest {
     SearchRequest {
         from: 0,
         query: Query {
@@ -176,17 +178,20 @@ pub fn default_search<'a>() -> SearchRequest {
                 Category::HobbyRoom,
                 Category::CellarCompartment,
                 Category::AtticCompartment,
-            ]).iter().map(|c| c.to_string()).collect(),
-            exclude_categories: Vec::from(vec![
+                Category::House,
                 Category::FurnishedFlat,
             ]).iter().map(|c| c.to_string()).collect(),
-            living_space: FromTo { from: Some(60), to: None },
+            exclude_categories: vec![], // Set to an empty vector
+            // exclude_categories: Vec::from(vec![
+            //     Category::FurnishedFlat,
+            // ]).iter().map(|c| c.to_string()).collect(),
+            living_space: FromTo { from: Some(40), to: None },
             location: Location {
                 latitude: 47.35985528332324,
                 longitude: 8.541818987578152,
                 radius: 622,
             },
-            monthly_rent: FromTo { from: Some(500), to: None },
+            monthly_rent: FromTo { from: Some(500), to: Some(2000), },
             number_of_rooms: FromTo {
                 from: Some(2),
                 to: None,
@@ -230,18 +235,19 @@ pub fn default_search<'a>() -> SearchRequest {
             listing_type: true,
             remote_viewing: true,
         },
-        size: 20,
+        size: 100,
         sort_by: String::from("listingType"),
         sort_direction: String::from("desc"),
         track_total_hits: true,
     }
 }
 
-pub async fn search(location: &Location) -> Result<Paginated<RealEstate>, reqwest::Error> {
+// pub async fn search(location: &Location) -> Result<Paginated<RealEstate>, reqwest::Error> {
+pub async fn search(search_request: &SearchRequest) -> Result<Paginated<RealEstate>, reqwest::Error> {
     let url: Url = Url::parse(&format!("{}{}", BACKEND_URL, "/search/listings")).unwrap();
 
-    let mut search_request = default_search();
-    search_request.query.location = location.clone();
+    // let mut search_request = default_search(0, 20);
+    // search_request.query.location = location.clone();
 
     let search_request_json = serde_json::to_string(&search_request).unwrap();
 

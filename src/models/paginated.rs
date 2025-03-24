@@ -3,10 +3,13 @@ use crate::models::realestate::RealEstate;
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
+
+
 pub struct Paginated<T> {
     pub from: u32,
     pub max_from: u32,
-    pub results: Vec<T>,
+    // pub max_from: Option<i32>,     // Make `maxFrom` optional
+    pub results: Vec<T>,    
     pub size: u32,
     pub total: u32,
 }

@@ -1,0 +1,20 @@
+{
+    "query": {
+      "offerType": "RENT",
+      "location": {
+        "latitude": 47.3768866,
+        "longitude": 8.541694,
+        "radius": 1000
+      },
+      "categories": ["APARTMENT", "STUDIO"],
+      "monthlyRent": {
+        "from": 1000,
+        "to": 3000
+      },
+      "numberOfRooms": {
+        "from": 2
+      },
+      "size": 20
+    }
+  }
+  

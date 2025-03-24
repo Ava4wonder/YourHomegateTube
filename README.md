@@ -1,5 +1,41 @@
-# UNOFFICIAL Homegate Library for Rust
+# HomegateTube
+Generate a read-friendly properties search report within a single html or pdf with rich information, for each property item it includes info:
+- Square, room number, (net) rent cost/month of this property
+- Distance between this property to your source location
+- Transit/Bicycle/Walk time cost
+- Explicit Transit route and time cost
+- Accessibilities (supermarket, pharmacy, school, park, hospital, transit_station) 
+- Street view images around this property
 
+## Setup environment
+pip install requirements.txt
+
+## Setup API keys
+- Google Map API key 
+- Kimi API key
+
+## Usage 
+In order to generate a html which display the houses that meet your requirements:
+- Source location: `lat`, `lon`
+- Maximum distance: `max_distance`
+- Street view: `on`
+- Summary report: `on`
+
+Just run code:
+```bash
+bash run_sh.sh
+```
+
+## Disclaimer
+
+This folder contains modified code from the `homegate-rs` project (https://github.com/denysvitali/homegate-rs) for educational purposes or private use only.
+
+Original work is licensed under the MIT License. See the LICENSE file for details.
+
+The library is not intended for scraping or publicly reusing data from homegate.ch without proper authorization.
+
+
+## Brief Into for `homegate-rs` Project: AN UNOFFICIAL Homegate Library for Rust
 <p align="center">
   <img 
     src="./docs/logo.png" 
@@ -8,29 +44,8 @@
   />
 </p>
 
-## Description
+`homegate-rs` is a small library that lets you interact with the
+[Homegate](https://homegate.ch) backend.   
 
-This is a small library that lets you interact with the
-[Homegate](https://homegate.ch) backend.  
-Please note that this library uses some unofficial APIs
-and thus your account might get banned for scraping.  
-
-
-## Disclaimer
-
-This repository and library has been created for educational
-purposes / private use. The data scraped with this library
-is most probably propery of Homegate.ch, thus you are
-most probably not allowed to re-sell it or re-use it publicly.  
-
-Following is an excerpt of the disclaimer page of homegate.ch:
-
-> ### Copyright/Ban on Republication
-> 
-> All elements, i.e. information, data and layouts on homegate.ch, are the exclusive and comprehensive property of SMG Swiss Marketplace Group Ltd (in particular, copyrights and other rights) unless specified otherwise.
-> 
-> The elements and all information offered on homegate.ch may only be used freely and without charge for browsing purposes for personal consumption. By accessing homegate.ch, the user expressly agrees not to copy, publish or provide access to the elements and information offered, in any form whatsoever, particularly on the World Wide Web.
-> 
-> The user must therefore obtain the prior written consent of SMG Swiss Marketplace Group Ltd, without exception, for any republication of elements in any medium whatsoever, in particular for providing public access to these elements on a URL other than homegate.ch.
 
 <small>from <i><a href="https://www.homegate.ch/c/en/about-us/legal-issues/disclaimer">homegate.ch's Disclaimer page</a></i></small>

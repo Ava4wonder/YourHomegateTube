@@ -35,6 +35,7 @@ pub enum Category {
     CellarCompartment,
     AtticCompartment,
     FurnishedFlat,
+    House, // Add this variant
 }
 
 impl Display for Category {
@@ -76,7 +77,8 @@ pub struct LocalizationEntryText {
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq)]
 #[serde(rename_all = "camelCase")]
 pub struct LocalizationEntry {
-    pub attachments: Vec<Attachment>,
+    // pub attachments: Vec<Attachment>,
+    pub attachments: Option<Vec<Attachment>>, // Change this to Option
     pub text: LocalizationEntryText,
 }
 
