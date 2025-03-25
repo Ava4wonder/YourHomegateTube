@@ -8,7 +8,10 @@ Help you generate a read-friendly properties search report within a single html 
 - Street view images around this property
 
 ## Demo result
-An example and display the top 9 pages from a 336 pages complete search report (the current version shows the info in Chinease):
+An example and display the top 9 pages from a 336 pages complete search report (the current version shows the info in Chinease). 
+
+The full pdf is also in the repo named `demo_result_page.pdf`. 
+
 <img width="591" alt="Screenshot 2025-03-25 at 3 38 30 PM" src="https://github.com/user-attachments/assets/1b480039-b11e-46dc-98b4-156a43ebfb82" />
 <img width="1038" alt="Screenshot 2025-03-25 at 3 39 11 PM" src="https://github.com/user-attachments/assets/c1bf5115-9249-4ad3-9e53-e02ea7393eac" />
 <img width="1044" alt="Screenshot 2025-03-25 at 3 39 27 PM" src="https://github.com/user-attachments/assets/7b54f656-167c-446f-9795-38afc922a0ba" />
